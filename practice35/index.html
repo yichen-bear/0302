@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>practice 35</title>
+		<style>
+			a {
+				background-color: rgb(251, 190, 105);
+				font-size: 15px;
+				color: black;
+				text-decoration: none;
+				border: none;
+				border-radius: 10px;
+				padding: 10px;
+				margin: 3px;
+			}
+			button {
+				background-color: white;
+				border: 2px solid rgb(168, 168, 168);
+				border-radius: 5px;
+				padding: 6px 11px;
+				min-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<h4>exercise 35</h4>
+		<pre id="display"></pre>
+
+		<br />
+
+		<button onclick="deleteAge()">Delete age property</button>
+		<button onclick="resetObject()">Reset</button>
+
+		<script>
+			// 原始的物件資料
+			var Person = {
+				firstName: "Tony",
+				lastName: "Lee",
+				age: 50,
+				eyeColor: "Blue",
+			};
+
+			// 物件印到畫面上
+			function printObject() {
+				// JSON.stringify(Person, null, 4) 可以把物件轉成看得懂的文字格式
+				document.getElementById("display").innerHTML = JSON.stringify(
+					Person,
+					null,
+					4,
+				);
+			}
+
+			printObject();
+
+			// Delete age property
+			function deleteAge() {
+				delete Person.age; // 刪除 age 欄位
+				printObject(); // 重新列印刪除後的物件
+			}
+
+			// Reset
+			function resetObject() {
+				// 把資料重新塞回去，恢復成原本的樣子
+				Person = {
+					firstName: "Tony",
+					lastName: "Lee",
+					age: 50,
+					eyeColor: "Blue",
+				};
+				printObject(); // 重新列印恢復後的物件
+			}
+		</script>
+        <br><br><br>
+		<a href="../index.html">回首頁</a>
+	</body>
+</html>
